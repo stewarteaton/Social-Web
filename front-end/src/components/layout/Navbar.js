@@ -1,0 +1,51 @@
+import React, { Component, Fragment } from 'react'
+// destructure Link to fix warning message
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import MyButton from '../../util/MyButton';
+import PostShout from '../shout/PostShout';
+import Notifications from './Notifications';
+// Material UI stuff - faster to require each componnent as needed
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/ToolBar';
+import Button from '@material-ui/core/Button';
+// icons
+import HomeIcon from '@material-ui/icons/Home';
+
+
+export class Navbar extends Component {
+    render() {
+        const { authenticated } = this.props
+        return (
+            <AppBar position="fixed">
+                <Toolbar className="nav-container">
+                    { authenticated ? (
+                        <Fragment>
+                            <PostShout />
+                            <Link to='/'>
+                                <MyButton tip="Home"> <HomeIcon /> </MyButton>
+                            </Link>
+                            <Notifications />
+                        </Fragment>
+                    ) : (
+                        <Fragment>
+                            <Button color="inherit" component={Link} to="/login">Login</Button>
+                            <Button color="inherit" component={Link} to="/">Home</Button>
+                            <Button color="inherit" component={Link} to="/signup">Signup</Button>
+                        </Fragment>
+                    ) }
+
+                </Toolbar>
+            </AppBar>
+        )
+    }
+}
+
+Navbar.propTypes = {
+    authenticated: PropTypes.bool.isRequired
+}
+const mapStateToProps = (state) => ({
+    authenticated: state.user.authenticated
+})
+export default connect(mapStateToProps)(Navbar)

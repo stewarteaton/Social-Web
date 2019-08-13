@@ -1,0 +1,50 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+#firebase 
+.firebaserc
+.firebase/
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.vscode
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# npm i react-router-dom
+# npm i @material-ui/core
+
+#MUI theme created
+
+#npm install --save axios
+# in package.json add "proxy" and your api link from firebase as base url
+
+#npm jwt-decode to decode web token
+
+#context api or redux? we decided redux
+#npm redux react-redux redux-thunk   // redux-thunk gives us access to dispatch, run async code 
+
+#signup and auth route
+
+#profile section
+
+#npm install @material-ui/icons
+
+#image upload section
